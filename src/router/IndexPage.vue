@@ -173,28 +173,28 @@ function validateAndSave(index) {
 	}
 
 	&__title {
-		font-size: 20px;
 		font-weight: 600;
+		font-size: 20px;
 	}
 
 	&__info {
 		display: flex;
 		align-items: center;
-		font-size: 14px;
-		color: #666;
-		background: #f5f5f5;
-		padding: 8px 12px;
-		border-radius: 6px;
 		margin-bottom: 16px;
+		padding: 8px 12px;
+		font-size: 14px;
+		color: $grey;
+		background: $white;;
+		border-radius: 6px;
 		gap: 8px;
 	}
 
 	&__row {
 		display: flex;
-		align-items: center;
-		gap: 12px;
-		margin-bottom: 12px;
 		flex-wrap: wrap;
+		align-items: center;
+		margin-bottom: 12px;
+		gap: 12px;
 	}
 
 	&__icon {
