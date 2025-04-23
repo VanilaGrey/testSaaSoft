@@ -1,0 +1,17 @@
+# https://github.com/editorconfig/editorconfig/wiki/EditorConfig-Properties
+
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+indent_style = tab
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.svg]
+insert_final_newline = false # Векторные изображения могут храниться в минифицированном виде, лишняя строка не нужна
+
+[*.yml]
+indent_size = 2
+indent_style = space
