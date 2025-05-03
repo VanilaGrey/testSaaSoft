@@ -1,8 +1,8 @@
-import { defineStore } from 'pinia';
+import { defineStore } from "pinia";
 
-export const useAccountStore = defineStore('accountStore', {
+export const useAccountStore = defineStore("accountStore", {
 	state: () => ({
-		accounts: JSON.parse(localStorage.getItem('accounts') || '[]'),
+		accounts: JSON.parse(localStorage.getItem("accounts") || "[]"),
 	}),
 
 	actions: {
@@ -21,8 +21,23 @@ export const useAccountStore = defineStore('accountStore', {
 		},
 
 		saveAccounts(accounts) {
-			this.accounts = accounts;
-			localStorage.setItem('accounts', JSON.stringify(accounts));
+			const validAccounts = accounts.filter((acc) => {
+				if (!acc.login || acc.login.length > 100) return false;
+
+				if (acc.type === "Локальная") {
+					if (!acc.password || acc.password.length > 100) return false;
+				}
+
+				if (acc.labelInput.length > 50) return false;
+
+				const wordsCount = acc.labelInput.split(" ").length;
+				if (wordsCount > 1 && !acc.labelInput.includes(";")) return false;
+
+				return true;
+			});
+
+			this.accounts = validAccounts;
+			localStorage.setItem("accounts", JSON.stringify(validAccounts));
 		},
 
 		getAccounts() {

@@ -184,7 +184,7 @@ function validateAndSave(index) {
 		padding: 8px 12px;
 		font-size: 14px;
 		color: $grey;
-		background: $white;;
+		background: $white;
 		border-radius: 6px;
 		gap: 8px;
 	}
